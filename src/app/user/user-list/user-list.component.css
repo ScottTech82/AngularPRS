@@ -1,0 +1,12 @@
+a {
+    text-decoration: none;
+    color:rgb(7, 122, 122);
+}
+a:hover{
+    color: black;
+    background-color: rgb(213, 219, 219);
+    
+}
+td {
+    background-color: rgb(227, 250, 255);
+}

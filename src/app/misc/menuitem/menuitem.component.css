@@ -1,0 +1,14 @@
+li { 
+    display: inline-block;  
+}
+a{ 
+    color: rgb(0, 0, 0); 
+    text-decoration: none; 
+    padding: 0 20px; 
+    
+}
+a:hover{ 
+    color: rgb(3, 150, 150); /*had this at rgb(2, 209, 209) */
+    /*background-color: rgb(5, 114, 114); /* had it at rgb(5, 114, 114); */
+    
+}
