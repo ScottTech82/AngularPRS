@@ -1,0 +1,40 @@
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+        <table class="table table-sm table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th class="text-center">Vendor Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let v of vend">
+                    <td id="maintable" >{{v.id}}</td>
+                    <td id="maintable" >{{v.code}}</td>
+                    <td id="maintable" >{{v.name}}</td>
+                    <td id="maintable" >{{v.address}}</td>
+                    <td id="maintable" >{{v.city}}</td>
+                    <td id="maintable" >{{v.state}}</td>
+                    <td id="maintable" >{{v.zip}}</td>
+                    <td id="maintable" >{{v.phone}}</td>
+                    <td id="maintable" >{{v.email}}</td>
+                    <td id="maintable" class="text-center">
+                        <a id="actions" routerLink="/vendor/detail/{{v.id}}">Vendor Details </a> &nbsp;|&nbsp;
+                        <a id="actions" routerLink="/vendor/change/{{v.id}}">Edit Vendor</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <table style="padding-left: 10px;">
+        <td  id="createnew" class="align-middle"><a id="createnew" routerLink="/vendor/create">-> Create New Vendor <-</a></td>
+    </table>
+</div>
+

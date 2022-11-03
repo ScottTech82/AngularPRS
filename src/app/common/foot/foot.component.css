@@ -1,3 +1,9 @@
-p {
+
+
+#prsfoot {
+    position: relative;
+    text-align: center;
+    padding-top: 50px;
+    width: 100%;
     color: silver;
 }

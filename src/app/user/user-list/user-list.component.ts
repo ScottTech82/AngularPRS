@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -15,6 +16,7 @@ export class UserListComponent implements OnInit {
   constructor(
     private usersvc: UserService
   ) { }
+
 
   ngOnInit(): void {
     this.usersvc.list().subscribe({

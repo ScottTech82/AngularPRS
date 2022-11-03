@@ -1,0 +1,50 @@
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+    <main id="main"><br>
+        <table class="table table-sm table-hover" *ngIf="vend">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td><input [(ngModel)]="vend.id" type="number" disabled></td>
+                </tr><tr>
+                    <th>Code</th>
+                    <td><input [(ngModel)]="vend.code" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Name</th>
+                    <td><input [(ngModel)]="vend.name" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Address</th>
+                    <td><input [(ngModel)]="vend.address" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>City</th>
+                    <td><input [(ngModel)]="vend.city" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>State</th>
+                    <td><input [(ngModel)]="vend.state" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Zip</th>
+                    <td><input [(ngModel)]="vend.zip" [disabled]="DetailPage"></td>
+                </tr><tr>
+                    <th>Phone</th>
+                    <td><input [(ngModel)]="vend.phone" [disabled]="DetailPage"></td>
+                </tr><tr>
+                </tr><tr>
+                    <th>Email</th>
+                    <td><input [(ngModel)]="vend.email" [disabled]="DetailPage"></td>
+                </tr><tr>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm">
+            <tr>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                <td>
+                    <button (click)="update()" class="btn btn-info">Update Vendor</button>
+                </td>
+            </tr>
+     </table>
+    </main>
+</div>
+
+
+

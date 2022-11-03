@@ -16,20 +16,24 @@
             </thead>
             <tbody>
                 <tr *ngFor="let u of users">
-                    <td class="td1">{{u.id}}</td>
-                    <td>{{u.lastname}}</td>
-                    <td>{{u.firstname}}</td>
-                    <td>{{u.username}}</td>
-                    <td>{{u.phone}}</td>
-                    <td>{{u.email}}</td>
-                    <td>{{u.isReviewer}}</td>
-                    <td>{{u.isAdmin}}</td>
-                    <td class="text-center">
-                        <a routerLink="/user/detail/{{u.id}}">User Details </a> &nbsp;|&nbsp;
-                        <a routerLink="/user/change/{{u.id}}">Edit User</a>
+                    <td id="maintable" >{{u.id}}</td>
+                    <td id="maintable" >{{u.lastname}}</td>
+                    <td id="maintable" >{{u.firstname}}</td>
+                    <td id="maintable" >{{u.username}}</td>
+                    <td id="maintable" >{{u.phone}}</td>
+                    <td id="maintable" >{{u.email}}</td>
+                    <td id="maintable" >{{u.isReviewer|boolDisp}}</td>
+                    <td id="maintable" >{{u.isAdmin|boolDisp}}</td>
+                    <td id="maintable" class="text-center">
+                        <a id="actions" routerLink="/user/detail/{{u.id}}">User Details </a> &nbsp;|&nbsp;
+                        <a id="actions" routerLink="/user/change/{{u.id}}">Edit User</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-    <prs-foot></prs-foot>
+    <table style="padding-left: 10px;">
+    
+        <td  id="createnew" class="align-middle"><a id="createnew" routerLink="/user/create">-> Create New User <-</a></td>
+    
+    </table>
 </div>
