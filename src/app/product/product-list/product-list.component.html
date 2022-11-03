@@ -1,1 +1,38 @@
-<p>product-list works!</p>
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+        <table class="table table-sm table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Part Number</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Unit</th>
+                    <th>PhotoPath</th>
+                    <th>Vendor Id</th>
+                    <th class="text-center">Product Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of prod">
+                    <td id="maintable" >{{p.id}}</td>
+                    <td id="maintable" >{{p.partNbr}}</td>
+                    <td id="maintable" >{{p.name}}</td>
+                    <td id="maintable" >{{p.price}}</td>
+                    <td id="maintable" >{{p.unit}}</td>
+                    <td id="maintable" >{{p.photoPath}}</td>
+                    <td id="maintable" >{{p.vendorId}}</td>
+
+                    <td id="maintable" class="text-center">
+                        <a id="actions" routerLink="/vendor/detail/{{p.id}}">Product Details </a> &nbsp;|&nbsp;
+                        <a id="actions" routerLink="/vendor/change/{{p.id}}">Edit Product</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <table style="padding-left: 10px;">
+        <td  id="createnew" class="align-middle"><a id="createnew" routerLink="/product/create">-> Create New Product <-</a></td>
+    </table>
+</div>
+
+
