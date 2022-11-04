@@ -1,1 +1,37 @@
-<p>request-detail works!</p>
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+    <main id="main"><br>
+        <table class="table table-sm table-hover" *ngIf="req">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td><input [(ngModel)]="req.id" type="number" disabled></td>
+                </tr><tr>
+                    <th>Description</th>
+                    <td><input [(ngModel)]="req.description" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Rejection Reason</th>
+                    <td><input [(ngModel)]="req.rejectionReason" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Status</th>
+                    <td><input [(ngModel)]="req.status" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Total</th>
+                    <td><input [(ngModel)]="req.total" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>User</th>
+                    <td><input [(ngModel)]="req.user.username" [disabled]="DetailPage" size="25"></td>
+            </tbody>
+        </table>
+        <div id="Dbutton">
+        <button (click)="remove()" class="btn btn-danger">Delete Request!</button>
+        <span *ngIf="verifyRemoveButton">
+            &nbsp;&nbsp;&nbsp;----> 
+            <button (click)="verifyRemove()" class="btn btn-danger">Please Verify Delete</button> <----
+        </span>
+        </div>
+    </main>
+</div>
+
+
+

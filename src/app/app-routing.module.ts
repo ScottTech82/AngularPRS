@@ -42,6 +42,10 @@ const routes: Routes = [
   {path: "product/detail/:id", component: ProductDetailComponent},
   {path: "product/create", component: ProductCreateComponent},
   {path: "product/change/:id", component: ProductChangeComponent},
+  {path: "request/list", component: RequestListComponent},
+  {path: "request/create", component: RequestCreateComponent},
+  {path: "request/detail/:id", component: RequestDetailComponent},
+  {path: "request/change/:id", component: RequestChangeComponent},
 
   {path: "about", component: AboutComponent},
   
