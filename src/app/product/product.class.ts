@@ -1,3 +1,5 @@
+import { Vendor } from "../vendor/vendor.class";
+
 export class Product {
     id: number = 0;
     partNbr: string = "";
@@ -6,4 +8,5 @@ export class Product {
     unit: string = "";
     photoPath: string = "";
     vendorId: number = 0;
+    vendor!: Vendor;
 }

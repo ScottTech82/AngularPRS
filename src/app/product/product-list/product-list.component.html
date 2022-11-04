@@ -8,8 +8,8 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Unit</th>
-                    <th>PhotoPath</th>
-                    <th>Vendor Id</th>
+                    <!-- <th>PhotoPath</th> -->
+                    <!-- <th>Vendor Id</th> -->
                     <th class="text-center">Product Actions</th>
                 </tr>
             </thead>
@@ -20,12 +20,12 @@
                     <td id="maintable" >{{p.name}}</td>
                     <td id="maintable" >{{p.price}}</td>
                     <td id="maintable" >{{p.unit}}</td>
-                    <td id="maintable" >{{p.photoPath}}</td>
-                    <td id="maintable" >{{p.vendorId}}</td>
+                    <!-- <td id="maintable" >{{p.photoPath}}</td> -->
+                    <!-- <td id="maintable" >{{p.vendorId}}</td> -->
 
                     <td id="maintable" class="text-center">
-                        <a id="actions" routerLink="/vendor/detail/{{p.id}}">Product Details </a> &nbsp;|&nbsp;
-                        <a id="actions" routerLink="/vendor/change/{{p.id}}">Edit Product</a>
+                        <a id="actions" routerLink="/product/detail/{{p.id}}">Product Details </a> &nbsp;|&nbsp;
+                        <a id="actions" routerLink="/product/change/{{p.id}}">Edit Product</a>
                     </td>
                 </tr>
             </tbody>

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SystemService } from '../common/system.service';
-import { UserCreateComponent } from './user-create/user-create.component';
 import { User } from './user.class';
 
 @Injectable({
@@ -17,8 +16,8 @@ export class UserService {
     private http: HttpClient
   ) { }
 
-    login(email: string, password: string) {
-      return this.http.get(`${this.baseurl}/${email}/${password}`) as Observable<User>;
+    login(username: string, password: string) {
+      return this.http.get(`${this.baseurl}/${username}/${password}`) as Observable<User>;
     }
     list(): Observable<User[]> {
       return this.http.get(`${this.baseurl}`) as Observable<User[]>;

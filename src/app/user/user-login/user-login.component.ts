@@ -11,6 +11,7 @@ import { UserService } from '../user.service';
 export class UserLoginComponent implements OnInit {
 
   email: string = "";
+  username: string = "";
   password: string = "";
   message: string = "";
 
@@ -24,7 +25,7 @@ export class UserLoginComponent implements OnInit {
 
   login(): void {
     this.sys.user = null;
-    this.usersvc.login(this.email, this.password).subscribe({
+    this.usersvc.login(this.username, this.password).subscribe({
       next: (res) => {
         console.debug("User:", res);
         this.sys.user = res;
@@ -32,7 +33,7 @@ export class UserLoginComponent implements OnInit {
       },
       error: (err) => {
         if(err.status === 404) {
-          this.message = "The Email or Password provided does not match!"
+          this.message = "-->The Email or Password provided does not match!<--"
         }
         else {
           console.error(err);

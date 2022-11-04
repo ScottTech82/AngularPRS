@@ -1,2 +1,13 @@
-<p>user-login works!</p>
+
+    <div class="login">
+        <h4 id="loginHeader">-- PRS User Login --</h4><br>
+        <label>Username:&nbsp;&nbsp;</label>
+        <input [(ngModel)]="username" placeholder="username"><br>
+        <label>Password: &nbsp;&nbsp; </label>
+        <input [(ngModel)]="password" type="password" placeholder="password"><br><br>
+        <button (click)="login()" id="loginbtn" class="btn btn-primary">
+            &nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <div id="loginMessage" class="text-danger h4">{{message}}</div>
+    </div>
+
 <!--Try using the bootstrap class .jumbotron -->
