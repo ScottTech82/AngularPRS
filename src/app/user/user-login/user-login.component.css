@@ -1,8 +1,15 @@
 .login{
     text-align: center;
-    background-color: rgb(189, 223, 224);
+    /*background-color: rgb(189, 223, 224);*/
     padding: 100px 100px 100px 100px;
 }
-#loginheader{
+#loginHeader{
     text-align: center;
+    padding-left: 70px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+#loginbtn{
+    padding: 5px 30px;
+    margin-left: 50px;
 }

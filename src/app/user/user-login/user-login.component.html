@@ -1,13 +1,21 @@
 
     <div class="login">
-        <h4 id="loginHeader">-- PRS User Login --</h4><br>
+        <h3 id="loginHeader">-- PRS User Login --</h3><br>
         <label>Username:&nbsp;&nbsp;</label>
-        <input [(ngModel)]="username" placeholder="username"><br>
+        <input [(ngModel)]="username" placeholder="username" size="30"><br>
         <label>Password: &nbsp;&nbsp; </label>
-        <input [(ngModel)]="password" type="password" placeholder="password"><br><br>
-        <button (click)="login()" id="loginbtn" class="btn btn-primary">
-            &nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        <input [(ngModel)]="password" type="password" placeholder="password" size="30"><br><br>
+        <!-- <button (click)="login()" id="loginbtn" class="btn btn-primary">
+            &nbsp;&nbsp;&nbsp;&nbsp;User Login&nbsp;&nbsp;&nbsp;&nbsp;</button> -->
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <td>
+                        <button (click)="login()" class="btn btn-info" id="loginbtn">User Login</button>
+                    </td>
+                </tr>
+         </table>
         <div id="loginMessage" class="text-danger h4">{{message}}</div>
     </div>
 
-<!--Try using the bootstrap class .jumbotron -->
+
