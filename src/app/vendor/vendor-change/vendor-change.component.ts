@@ -10,7 +10,7 @@ import { VendorService } from '../vendor.service';
 })
 export class VendorChangeComponent implements OnInit {
 
-  pageTitle: string = "-- Update Vendor --";
+  pageTitle: string = "-- Vendor Update --";
   DetailPage: boolean = false;
   vend!: Vendor;
 

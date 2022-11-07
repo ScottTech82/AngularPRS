@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class UserChangeComponent implements OnInit {
 
-  pageTitle: string = "-- Update User --"
+  pageTitle: string = "-- User Update --"
   user: User = new User;
   DetailPage: boolean = false;
   

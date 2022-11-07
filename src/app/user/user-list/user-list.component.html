@@ -16,15 +16,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let u of users">
-                    <td id="maintable" >{{u.id}}</td>
-                    <td id="maintable" >{{u.lastname}}</td>
-                    <td id="maintable" >{{u.firstname}}</td>
-                    <td id="maintable" >{{u.username}}</td>
-                    <td id="maintable" >{{u.phone}}</td>
-                    <td id="maintable" >{{u.email}}</td>
-                    <td id="maintable" >{{u.isReviewer|boolDisp}}</td>
-                    <td id="maintable" >{{u.isAdmin|boolDisp}}</td>
-                    <td id="maintable" class="text-center">
+                    <td>{{u.id}}</td>
+                    <td>{{u.lastname}}</td>
+                    <td>{{u.firstname}}</td>
+                    <td>{{u.username}}</td>
+                    <td>{{u.phone}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.isReviewer|boolDisp}}</td>
+                    <td>{{u.isAdmin|boolDisp}}</td>
+                    <td class="text-center">
                         <a id="actions" routerLink="/user/detail/{{u.id}}">User Details </a> &nbsp;|&nbsp;
                         <a id="actions" routerLink="/user/change/{{u.id}}">Edit User</a>
                     </td>

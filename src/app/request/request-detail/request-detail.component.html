@@ -10,14 +10,17 @@
                     <th>Description</th>
                     <td><input [(ngModel)]="req.description" [disabled]="DetailPage" size="25"></td>
                 </tr><tr>
-                    <th>Rejection Reason</th>
-                    <td><input [(ngModel)]="req.rejectionReason" [disabled]="DetailPage" size="25"></td>
+                    <th>Justification</th>
+                    <td><input [(ngModel)]="req.justification" [disabled]="DetailPage" size="25"></td>
+                </tr><tr>
+                    <th>Delivery Mode</th>
+                    <td><input [(ngModel)]="req.deliveryMode" [disabled]="DetailPage" size="25"></td>
                 </tr><tr>
                     <th>Status</th>
                     <td><input [(ngModel)]="req.status" [disabled]="DetailPage" size="25"></td>
                 </tr><tr>
                     <th>Total</th>
-                    <td><input [(ngModel)]="req.total" [disabled]="DetailPage" size="25"></td>
+                    <td><input [(ngModel)]="req.total" type="number"  [disabled]="DetailPage" size="25"></td>
                 </tr><tr>
                     <th>User</th>
                     <td><input [(ngModel)]="req.user.username" [disabled]="DetailPage" size="25"></td>

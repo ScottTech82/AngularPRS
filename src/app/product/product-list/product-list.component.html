@@ -15,14 +15,14 @@
             </thead>
             <tbody>
                 <tr *ngFor="let p of prod">
-                    <td id="maintable" >{{p.id}}</td>
-                    <td id="maintable" >{{p.partNbr}}</td>
-                    <td id="maintable" >{{p.name}}</td>
-                    <td id="maintable" >{{p.price|currency}}</td>
-                    <td id="maintable" >{{p.unit}}</td>
-                    <!-- <td id="maintable" >{{p.photoPath}}</td> -->
-                    <td id="maintable" >{{p.vendorId}}</td>
-                    <td id="maintable" class="text-center">
+                    <td>{{p.id}}</td>
+                    <td>{{p.partNbr}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.price|currency}}</td>
+                    <td>{{p.unit}}</td>
+                    <!-- <td>{{p.photoPath}}</td> -->
+                    <td>{{p.vendorId}}</td>
+                    <td class="text-center">
                         <a id="actions" routerLink="/product/detail/{{p.id}}">Product Details </a> &nbsp;|&nbsp;
                         <a id="actions" routerLink="/product/change/{{p.id}}">Edit Product</a>
                     </td>

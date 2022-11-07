@@ -9,9 +9,7 @@
     border-radius: 5px;
     
 }
-/*#maintable {
-background-color: rgb(245, 253, 255); /*was rgb(227, 250, 255)  
-}*/
+
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgb(232, 253, 253);
 }

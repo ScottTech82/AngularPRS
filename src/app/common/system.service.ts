@@ -11,8 +11,14 @@ export class SystemService {
   user: any = null;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private sys: SystemService
   ) { }
 
+  chkLogin(): void {
+    if(this.user === null) {
+      this.router.navigateByUrl("/user/login");
+    }
+  }
   
 }
