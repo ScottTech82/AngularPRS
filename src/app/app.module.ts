@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +33,11 @@ import { RequestlineListComponent } from './requestline/requestline-list/request
 import { RequestlineDetailComponent } from './requestline/requestline-detail/requestline-detail.component';
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineChangeComponent } from './requestline/requestline-change/requestline-change.component';
+import { AppInitService } from './app-init.service';
+
+export function startupServiceFactory(appInit: AppInitService): Function {
+  return () => appInit.getSettings();
+}
 
 @NgModule({
   declarations: [
@@ -72,7 +77,14 @@ import { RequestlineChangeComponent } from './requestline/requestline-change/req
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AppInitService, {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+        deps: [AppInitService],
+        multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

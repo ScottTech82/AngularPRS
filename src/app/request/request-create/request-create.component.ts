@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
+import { UserLoginComponent } from 'src/app/user/user-login/user-login.component';
+import { User } from 'src/app/user/user.class';
+import { UserService } from 'src/app/user/user.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
+
 
 @Component({
   selector: 'app-request-create',
@@ -13,10 +18,17 @@ export class RequestCreateComponent implements OnInit {
   pageTitle: string = "-- Create New Request --";
   DetailPage: boolean = false;
   req: Request = new Request;
+  user!: User;
+  
+  
 
   constructor(
     private reqsvc: RequestService,
-    private router: Router
+    private router: Router,
+    private sys: SystemService,
+    private usersvc: UserService,
+    private route: ActivatedRoute
+  
   ) { }
 
   create(): void {
@@ -32,6 +44,9 @@ export class RequestCreateComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    console.debug("Login:", this.sys.user);
+    this.user = this.sys.user;
+    console.debug("user:", this.user);
   }
 
 }

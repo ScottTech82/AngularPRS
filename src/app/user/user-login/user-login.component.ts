@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SystemService } from 'src/app/common/system.service';
+import { User } from '../user.class';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,11 +11,10 @@ import { UserService } from '../user.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  email: string = "";
   username: string = "";
   password: string = "";
   message: string = "";
-
+  
 
   constructor(
     private sys: SystemService,

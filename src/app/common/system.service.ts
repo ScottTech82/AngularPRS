@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppInitService } from '../app-init.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SystemService {
 
-  baseurl: string = "http://localhost:5555/api";
+  baseurl: string = this.appInit.config.baseurl;
 
   user: any = null;
 
   constructor(
     private router: Router,
-    private sys: SystemService
+    private appInit: AppInitService
   ) { }
 
   chkLogin(): void {
