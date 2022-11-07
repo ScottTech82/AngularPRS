@@ -17,7 +17,7 @@
                     <td><input [(ngModel)]="prod.unit" [disabled]="DetailPage" size="25"></td>
                 </tr><tr>
                     <th>Price</th>
-                    <td><input [(ngModel)]="prod.price" [disabled]="DetailPage" size="25"></td>
+                    <td><input [(ngModel)]="prod.price" type="number" [disabled]="DetailPage"></td>
                 </tr><tr>
                     <th>Photo Path</th>
                     <td><input [(ngModel)]="prod.photoPath" [disabled]="DetailPage" size="25"></td>
@@ -25,7 +25,7 @@
                     <th>Vendor</th>
                     <td>
                         <select id="vendors" [(ngModel)]="prod.vendorId">
-                            <option *ngFor="let v of vendor" value="vend">{{v.name}}</option>
+                            <option *ngFor="let v of vendor" [ngValue]="v.id">{{v.name}}</option>
                         </select>
                     </td>
             </tbody>

@@ -36,6 +36,8 @@ export class ProductChangeComponent implements OnInit {
     });
   }
 
+
+
   ngOnInit(): void {
     let id = +this.route.snapshot.params["id"];
     this.prodsvc.get(id).subscribe({
