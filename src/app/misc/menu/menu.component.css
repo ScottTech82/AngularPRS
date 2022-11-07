@@ -1,2 +1,7 @@
-nav { background-color: rgb(221, 247, 247); } /* had rgb(169, 233, 233) then later (211, 238, 238) */
-ul { padding-left: 2px; margin: 20px 0; }
+nav { 
+    background-color: rgb(221, 247, 247); /* had rgb(169, 233, 233) then later (211, 238, 238) */
+    margin-top: 40px;
+} 
+    ul { 
+    padding-left: 2px; margin: 20px 0; 
+}

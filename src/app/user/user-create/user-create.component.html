@@ -1,7 +1,7 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
     <main id="main"><br>
-        <table class="table table-sm table-hover" *ngIf="user">
+        <table class="table table-sm" *ngIf="user">
             <tbody>
                 <tr>
                     <th>Id</th>
@@ -33,9 +33,9 @@
         </table>
         <table class="table table-sm">
                 <tr>
-                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                    <td>
-                        <button (click)="create()" class="btn btn-info">Create New User</button>
+                    <th></th>
+                    <td id="tdButton">
+                        <button id="createBtn" (click)="create()" class="btn btn-info">Create New User</button>
                     </td>
                 </tr>
          </table>

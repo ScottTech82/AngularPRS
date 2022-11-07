@@ -1,7 +1,7 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
     <main id="main"><br>
-        <table class="table table-sm table-hover" *ngIf="vend">
+        <table class="table table-sm" *ngIf="vend">
             <tbody>
                 <tr>
                     <th>Id</th>
@@ -37,9 +37,9 @@
         </table>
         <table class="table table-sm">
             <tr>
-                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                <td>
-                    <button (click)="update()" class="btn btn-info">Update Vendor</button>
+                <th></th>
+                <td id="tdButton">
+                    <button id="updateBtn" (click)="update()" class="btn btn-info">Update Vendor</button>
                 </td>
             </tr>
      </table>

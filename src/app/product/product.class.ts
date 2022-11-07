@@ -5,7 +5,7 @@ export class Product {
     partNbr: string = "";
     name: string = "";
     price: number = 0;
-    unit: string = "Each";
+    unit: string = "";
     photoPath: string = "";
     vendorId: number = 0;
     vendor!: Vendor;

@@ -1,7 +1,7 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
     <main id="main"><br>
-        <table class="table table-sm table-hover" *ngIf="user">
+        <table class="table table-sm" *ngIf="user">
             <tbody>
                 <tr>
                     <th>Id</th>
@@ -31,12 +31,19 @@
                 </tr>
             </tbody>
         </table>
-        <div id="Dbutton" class="d-flex justify-content-center">
-        <button (click)="remove()" class="btn btn-danger">Delete User!</button>
-        <span *ngIf="showVerifButton">
-            &nbsp;&nbsp;&nbsp;----> 
-            <button (click)="verifyDeletion()" class="btn btn-danger">Please Verify Delete</button> <----
-        </span>
+        <div id="Dbutton">
+            <table class="table table-sm">
+                <tr>
+                    <th></th>
+                    <td id="tdButton">
+                        <button id="removeBtn" (click)="remove()" class="btn btn-danger">Delete User</button>
+                        <span *ngIf="showVerifButton">
+                            &nbsp;&nbsp;&nbsp;----> 
+                            <button (click)="verifyDeletion()" class="btn btn-danger">Please Verify Delete</button> <----
+                        </span>
+                    </td>
+                </tr>
+            </table>
         </div>
     </main>
 </div>

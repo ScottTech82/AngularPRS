@@ -3,7 +3,7 @@
         <table class="table table-sm table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Id&nbsp;&nbsp;&nbsp;</th>
                     <th>Part Number</th>
                     <th>Name</th>
                     <th>Price</th>
@@ -18,11 +18,10 @@
                     <td id="maintable" >{{p.id}}</td>
                     <td id="maintable" >{{p.partNbr}}</td>
                     <td id="maintable" >{{p.name}}</td>
-                    <td id="maintable" >{{p.price}}</td>
+                    <td id="maintable" >{{p.price|currency}}</td>
                     <td id="maintable" >{{p.unit}}</td>
                     <!-- <td id="maintable" >{{p.photoPath}}</td> -->
                     <!-- <td id="maintable" >{{p.vendorId}}</td> -->
-
                     <td id="maintable" class="text-center">
                         <a id="actions" routerLink="/product/detail/{{p.id}}">Product Details </a> &nbsp;|&nbsp;
                         <a id="actions" routerLink="/product/change/{{p.id}}">Edit Product</a>
@@ -30,9 +29,9 @@
                 </tr>
             </tbody>
         </table>
-    <table style="padding-left: 10px;">
-        <td  id="createnew" class="align-middle"><a id="createnew" routerLink="/product/create">-> Create New Product <-</a></td>
-    </table>
+    <div id="cnBtn">
+        <span><a id="createnew" routerLink="/product/create">-> Create New Product <-</a></span>
+    </div>
 </div>
 
 

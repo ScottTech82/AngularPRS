@@ -31,9 +31,19 @@
                 </tr>
             </tbody>
         </table>
-    <table style="padding-left: 10px;">
-    
-        <td  id="createnew" class="align-middle"><a id="createnew" routerLink="/user/create">-> Create New User <-</a></td>
-    
-    </table>
+        <div id="cnBtn">
+            <span><a id="createnew" routerLink="/user/create">-> Create New User <-</a></span>
+        </div>
+
+        <!--
+        <table class="table table-sm">
+            <tr>
+            <th></th>
+                <td id="tdButton">
+                    <button id="createBtn" [routerLink]="'/user/create'" class="btn btn-info">
+                    -> New User <-</button>
+                </td>
+            </tr>
+        </table>
+        -->
 </div>

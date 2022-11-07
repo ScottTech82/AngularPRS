@@ -35,10 +35,11 @@ export class ProductCreateComponent implements OnInit {
     });
   }
 
+
   ngOnInit(): void {
     this.vendsvc.list().subscribe({
       next: (res) => {
-        console.debug("Products:", res);
+        console.debug("Vendors:", res);
         this.vendor = res;
       },
       error: (err) => {
