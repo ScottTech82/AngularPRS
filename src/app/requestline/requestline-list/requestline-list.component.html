@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngIf="req">
                     <td>{{req.id}}</td>
                     <td>{{req.description}}</td>
                     <td>{{req.rejectionReason}}</td>
@@ -21,7 +21,7 @@
                     <td>{{req.total|currency}}</td>
                     <td>{{req.user.username}}</td>
                     <td class="text-center">
-                        <a id="actions" routerLink="/request/detail/{{req.id}}">Submit for Review</a>
+                        <a id="actions" routerLink="">Submit for Review</a>
                     </td>
                 </tr>
             </tbody>
@@ -38,17 +38,23 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Line Total</th>
-                        <th>Request Line Actions</th>
+                        <th class="text-center">Request Line Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let rql of reqln">
-                        <td>{{rql.id}}</td>
-                        <td>{{rql.product}}</td>
-                       <!-- <td>{{prod.price}}</td> -->
-                        <td>{{rql.quantity}}</td>
-                       <!-- <td>{{linetotal}}</td> -->
-                    </tr>
+                    <ng-container *ngIf="req">
+                        <tr *ngFor="let rql of req.requestLine">
+                            <td>{{rql.id}}</td>
+                            <td>{{rql.product.name}}</td>
+                            <td>{{rql.product.price|currency}}</td>
+                            <td>{{rql.quantity}}</td>
+                            <td>{{rql.quantity*rql.product.price|currency}}</td>
+                            <td>
+                                <a id="actions" routerLink="/requestline/change/{{req.id}}">Edit</a> &nbsp;|&nbsp;
+                                <a id="actions" routerLink="">Delete</a>
+                            </td>
+                        </tr>
+                    </ng-container>
                 </tbody>
             </table>
         </div>
@@ -57,6 +63,11 @@
     </div>
 </div>
 
+
+<!-- <tbody *ngIf="reqln && req">
+    <ng-container *ngFor="let rql of reqln">
+        <tr *ngIf="rql.requestId === req.id">
+        -->
 
 
 

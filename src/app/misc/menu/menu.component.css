@@ -3,5 +3,34 @@ nav {
     margin-top: 40px;
 } 
     ul { 
-    padding-left: 2px; margin: 20px 0; 
+    padding-left: 2px; 
+    margin: 20px 0; 
+    width: 100%;
+}
+#nonMenu{
+    display: inline-block;  
+    text-align: left;
+    font-size: large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-left: 20px;
+    
+
+}
+#nonMenu2{
+    display: inline-block;
+    text-align: right;
+    font-size: large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#userlog{
+     
+    text-align: right;
+    font-size: large;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+span{
+    display: inline-block;
+    text-align: justify;
+    direction: rtl;
 }

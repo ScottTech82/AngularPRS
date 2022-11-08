@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SystemService } from '../common/system.service';
-import { Requestline } from './requestline.class';
+import { RequestLine } from './requestline.class';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RequestlineService {
+export class RequestLineService {
   
   baseurl: string = `${this.sys.baseurl}/requestlines`;
 
@@ -16,16 +16,16 @@ export class RequestlineService {
     private http: HttpClient
   ) { }
 
-  list(): Observable<Requestline[]> {
-    return this.http.get(`${this.baseurl}`) as Observable<Requestline[]>;
+  list(): Observable<RequestLine[]> {
+    return this.http.get(`${this.baseurl}`) as Observable<RequestLine[]>;
   }
-  get(id: number): Observable<Requestline>{
-    return this.http.get(`${this.baseurl}/${id}`) as Observable<Requestline>;
+  get(id: number): Observable<RequestLine>{
+    return this.http.get(`${this.baseurl}/${id}`) as Observable<RequestLine>;
   }
-  create(reqln: Requestline): Observable<Requestline>{
-    return this.http.post(`${this.baseurl}`, reqln) as Observable<Requestline>;
+  create(reqln: RequestLine): Observable<RequestLine>{
+    return this.http.post(`${this.baseurl}`, reqln) as Observable<RequestLine>;
   }
-  change(reqln: Requestline): Observable<any>{
+  change(reqln: RequestLine): Observable<any>{
     return this.http.put(`${this.baseurl}/${reqln.id}`, reqln) as Observable<any>;
   }
   remove(id: number): Observable<any> {
