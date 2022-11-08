@@ -1,1 +1,62 @@
-<p>requestline-list works!</p>
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+        <table class="table table-sm table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Rejection Reason</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>User</th>
+                    <th class="text-center">Request Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{req.id}}</td>
+                    <td>{{req.description}}</td>
+                    <td>{{req.rejectionReason}}</td>
+                    <td>{{req.status}}</td>
+                    <td>{{req.total|currency}}</td>
+                    <td>{{req.user.username}}</td>
+                    <td class="text-center">
+                        <a id="actions" routerLink="/request/detail/{{req.id}}">Submit for Review</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <hr>
+        <br>
+        <div id="reqlinetable">
+            <table class="table table-sm table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Line Total</th>
+                        <th>Request Line Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rql of reqln">
+                        <td>{{rql.id}}</td>
+                        <td>{{rql.product}}</td>
+                       <!-- <td>{{prod.price}}</td> -->
+                        <td>{{rql.quantity}}</td>
+                       <!-- <td>{{linetotal}}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <div id="cnBtn">
+        <span><a id="createnew" routerLink="/request/create">-> New Request Line <-</a></span>
+    </div>
+</div>
+
+
+
+

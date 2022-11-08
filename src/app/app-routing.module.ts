@@ -46,6 +46,10 @@ const routes: Routes = [
   {path: "request/create", component: RequestCreateComponent},
   {path: "request/detail/:id", component: RequestDetailComponent},
   {path: "request/change/:id", component: RequestChangeComponent},
+  {path: "requestline/list/:id", component: RequestlineListComponent},
+  {path: "requestline/create", component: RequestlineCreateComponent},
+  {path: "requestline/detail/:id", component: RequestlineDetailComponent},
+  {path: "requestline/change/:id", component: RequestlineChangeComponent},
 
   {path: "about", component: AboutComponent},
   

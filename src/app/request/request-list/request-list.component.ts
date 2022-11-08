@@ -19,7 +19,7 @@ export class RequestListComponent implements OnInit {
   ngOnInit(): void {
     this.reqsvc.list().subscribe({
       next: (res) => {
-        console.debug("Products:", res);
+        console.debug("Requests:", res);
         this.req = res;
       },
       error: (err) => {
