@@ -1,1 +1,35 @@
-<p>requestline-change works!</p>
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+    <main id="main"><br>
+        <table class="table table-sm">
+            <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td><input [(ngModel)]="reqln.id" type="number" disabled></td>
+                </tr><tr>
+                    <th>Product</th>
+                    <td><select id="products" [(ngModel)]="reqln.productId">
+                        <option *ngFor="let p of prod" [ngValue]="p.id">{{p.name}}</option>
+                        </select>
+                    </td>
+                </tr><tr>
+                    <th>Quantity</th>
+                    <td><input [(ngModel)]="reqln.quantity" type="number" size="25"></td>
+            </tbody>
+        </table>
+        <table class="table table-sm">
+            <tr>
+                <th></th>
+                <td id="tdButton">
+                    <button id="createBtn" (click)="update()" class="btn btn-info">Update RequestLine</button>
+                </td>
+            </tr>
+     </table>
+    </main>
+</div>
+
+
+
+
+
+

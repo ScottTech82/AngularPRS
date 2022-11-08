@@ -32,6 +32,8 @@ export class RequestCreateComponent implements OnInit {
   ) { }
 
   create(): void {
+    let id = this.sys.user.id;
+    this.req.userId = id;
     this.reqsvc.create(this.req).subscribe({
       next: (res) => {
         console.debug("Request Created.");

@@ -9,7 +9,10 @@ export class Request {
     deliveryMode: string = "Pickup";
     status: string = "NEW";
     total: number = 0;
+   
+    requestLines!: RequestLine[];
+    
+    userId!: number;
     user!: User;
-    requestLine!: RequestLine[];
     
 }

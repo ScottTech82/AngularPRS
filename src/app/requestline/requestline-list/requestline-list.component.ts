@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/product/product.class';
 import { ProductService } from 'src/app/product/product.service';
@@ -18,6 +18,7 @@ export class RequestlineListComponent implements OnInit {
   pageTitle: string = "-- Request Lines --";
   req!: Request;
   prod: Product[] = [];
+  reqlnTBD!: RequestLine;
   
   constructor(
     private reqlnsvc: RequestLineService,
@@ -27,15 +28,39 @@ export class RequestlineListComponent implements OnInit {
     private router: Router
     
     ) { }
-    
-    ngOnInit(): void {
+
+    submitReview(): void {
+      this.reqsvc.review(this.req).subscribe({
+        next: (res) => {
+          console.debug("Request reviewed");
+          this.refresh();
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+    }
+
+    reqlnDelete(id: number): void {
+
+      this.reqlnsvc.remove(id).subscribe({
+        next: (res) => {
+          console.debug("RequestLine Deleted");
+          this.refresh();
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+    }
+
+    refresh(): void {
       let id = +this.route.snapshot.params["id"];
       this.reqsvc.get(id).subscribe({
         next: (res) => {
           console.debug("Request:", res);
           this.req = res;
-          this.reqln = this.req.requestLine;
-          console.debug("Reqlns:", this.reqln);
+          console.debug("Reqreqln:", this.req.requestLines);
          
         },
         error: (err) => {
@@ -47,24 +72,12 @@ export class RequestlineListComponent implements OnInit {
           }
         }
       }); 
-      
-    //read the requestlines by requestId and put them into the reqln array.
-    //get the full list of request lines, then find the ones matching the requestId and put into the array
-    /*
-    this.reqlnsvc.list().subscribe({
-      next: (res) => {
-        console.debug("Reqlines:", res);
-        this.reqln = res;
-        
-      },
-      error: (err) => {
-        console.error(err);
-      }
-    });
-    */
+    }
     
-  
-  }
+    ngOnInit(): void {
+      this.refresh();
+
+    }
 
 
 }

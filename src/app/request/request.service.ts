@@ -31,4 +31,7 @@ export class RequestService {
   remove(id: number): Observable<any> {
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
   }
+  review(req: Request): Observable<Request> {
+    return this.http.put(`${this.baseurl}/review/${req.id}`, req) as Observable<Request>;
+  }
 }

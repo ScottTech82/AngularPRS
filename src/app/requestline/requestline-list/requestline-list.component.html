@@ -21,7 +21,7 @@
                     <td>{{req.total|currency}}</td>
                     <td>{{req.user.username}}</td>
                     <td class="text-center">
-                        <a id="actions" routerLink="">Submit for Review</a>
+                        <button (click)="submitReview()" id="actionsBtn" class="btn btn-link">Submit for Review</button>
                     </td>
                 </tr>
             </tbody>
@@ -43,31 +43,28 @@
                 </thead>
                 <tbody>
                     <ng-container *ngIf="req">
-                        <tr *ngFor="let rql of req.requestLine">
+                        <tr *ngFor="let rql of req.requestLines">
                             <td>{{rql.id}}</td>
                             <td>{{rql.product.name}}</td>
                             <td>{{rql.product.price|currency}}</td>
                             <td>{{rql.quantity}}</td>
                             <td>{{rql.quantity*rql.product.price|currency}}</td>
-                            <td>
-                                <a id="actions" routerLink="/requestline/change/{{req.id}}">Edit</a> &nbsp;|&nbsp;
-                                <a id="actions" routerLink="">Delete</a>
+                            <td class="text-center">
+                                <button id="actionsBtn" class="btn btn-link" routerLink="/requestline/change/{{rql.id}}">Edit</button> &nbsp;|&nbsp;
+                                <button (click)="reqlnDelete(rql.id)" id="actionsBtn" class="btn btn-link">Delete</button>
                             </td>
                         </tr>
                     </ng-container>
                 </tbody>
             </table>
         </div>
-    <div id="cnBtn">
-        <span><a id="createnew" routerLink="/request/create">-> New Request Line <-</a></span>
+    <div id="cnBtn" *ngIf="req">
+        <span><a id="createnew" routerLink="/requestline/create/{{req.id}}">-> New Request Line <-</a></span>
     </div>
 </div>
 
 
-<!-- <tbody *ngIf="reqln && req">
-    <ng-container *ngFor="let rql of reqln">
-        <tr *ngIf="rql.requestId === req.id">
-        -->
+
 
 
 

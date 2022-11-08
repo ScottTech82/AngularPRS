@@ -1,13 +1,26 @@
 #actions {
     text-decoration: none;
     color:rgb(7, 102, 102);
-    padding: 5px;
+    padding: 0px;
+    text-align: center;
 }
 #actions:hover{
     color: rgb(248, 248, 248);
     background-color: rgb(68, 121, 128);
     border-radius: 5px;
     
+}
+#actionsBtn{
+    text-decoration: none;
+    color:rgb(7, 102, 102);
+    padding: 0px;
+    text-align: center;
+}
+#actionsBtn:hover{
+    color: rgb(248, 248, 248);
+    background-color: rgb(68, 121, 128);
+    border-radius: 5px;
+   
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
