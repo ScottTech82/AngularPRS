@@ -1,0 +1,26 @@
+#approveBtn{
+    text-decoration: none;
+    color:rgb(7, 102, 102);
+    padding: 5px;
+
+}
+
+#approveBtn:hover{
+    color: rgb(248, 248, 248);
+    background-color: rgb(68, 121, 128);
+    border-radius: 5px;
+    
+}
+#rejectBtn{
+    text-decoration: none;
+    color:rgb(7, 102, 102);
+    padding: 5px;
+
+}
+
+#rejectBtn:hover{
+    color: rgb(248, 248, 248);
+    background-color: rgb(68, 121, 128);
+    border-radius: 5px;
+    
+}

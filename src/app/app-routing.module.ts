@@ -21,13 +21,16 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
 import { RequestChangeComponent } from './request/request-change/request-change.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { RequestlineListComponent } from './requestline/requestline-list/requestline-list.component';
-import { RequestlineDetailComponent } from './requestline/requestline-detail/requestline-detail.component';
 import { RequestlineCreateComponent } from './requestline/requestline-create/requestline-create.component';
 import { RequestlineChangeComponent } from './requestline/requestline-change/requestline-change.component';
+import { RequestReviewComponent } from './request/request-review/request-review.component';
+import { RequestReviewitemComponent } from './request/request-reviewitem/request-reviewitem.component';
 
 
 const routes: Routes = [
   {path: "", redirectTo: "/user/login", pathMatch: "full"},
+  
+
   
   {path: "user/login", component: UserLoginComponent},
   {path: "user/list", component: UserListComponent},
@@ -48,11 +51,13 @@ const routes: Routes = [
   {path: "request/change/:id", component: RequestChangeComponent},
   {path: "requestline/list/:id", component: RequestlineListComponent},
   {path: "requestline/create/:id", component: RequestlineCreateComponent},
-  {path: "requestline/detail/:id", component: RequestlineDetailComponent},
   {path: "requestline/change/:id", component: RequestlineChangeComponent},
-
+  {path: "request/reviews", component: RequestReviewComponent},
+  {path: "request/reviewitem", component: RequestReviewitemComponent},
   {path: "about", component: AboutComponent},
   
+
+
   
   {path: "**", component: E404Component}
 ];

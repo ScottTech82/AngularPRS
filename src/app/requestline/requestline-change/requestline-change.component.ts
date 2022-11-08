@@ -38,6 +38,20 @@ export class RequestlineChangeComponent implements OnInit {
 
   ngOnInit(): void {
     let id = +this.route.snapshot.params["id"];
+    this.reqlnsvc.get(id).subscribe({
+      next: (res) => {
+        console.debug("Request:", res);
+        this.reqln = res;
+      },
+      error: (err) => {
+        if(err.status === 404) {
+          this.router.navigateByUrl("/misc/e404");
+        }
+        else {
+          console.error(err);
+        }
+      }
+    });
         
     this.prodsvc.list().subscribe({
       next: (res) => {
