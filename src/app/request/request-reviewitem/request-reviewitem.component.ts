@@ -16,7 +16,7 @@ export class RequestReviewitemComponent implements OnInit {
   reqln: RequestLine[] = [];
   showVerifyReject: boolean = false;
   message: string = "";
-  
+  fred = "";
 
 
   constructor(
@@ -27,6 +27,7 @@ export class RequestReviewitemComponent implements OnInit {
   ) { }
 
   approve(): void {
+    this.req.rejectionReason = "";
     this.reqsvc.approveReview(this.req).subscribe({
       next: (res) => {
         console.debug("Review Approved");
@@ -46,7 +47,7 @@ export class RequestReviewitemComponent implements OnInit {
 
   verifyReject(): void {
    // if(this.rejectInput === true) {
-      
+      this.req.rejectionReason = this.fred;
       this.reqsvc.rejectReview(this.req).subscribe({
           next: (res) => {
            console.debug("Review Rejected!");

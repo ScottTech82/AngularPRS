@@ -34,3 +34,10 @@ tbody tr:hover {
 .table-striped tbody tr:nth-of-type(odd):hover {
     background-color: rgb(195, 250, 250);
 }
+#rejreas{
+    padding-left: 30px;
+    padding-top: 10px;
+    color: red;
+    font-style: italic;
+    font-size: large;
+}

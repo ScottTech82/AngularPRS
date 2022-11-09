@@ -54,12 +54,16 @@
         <span><button (click)="reject()" id="rejectBtn" class="btn btn-link">Reject!</button></span>
         
         <form id="rejectForm" (ngSubmit)="verifyReject()" *ngIf="req" >
-
             <span *ngIf="showVerifyReject">
                 <input id="rejres" size="40" placeholder="Rejection Reason (required)" 
-                [(ngModel)]="req.rejectionReason" name="rejres" required>
+                [(ngModel)]="fred" name="rejres" required minlength="1">
                 <!-- <input type="submit" onclick="verifyReject()" value="Verify Reject" id="rejectBtn">  -->
-                 <button (click)="verifyReject()" class="btn btn-danger" type="submit" >Verify Reject</button>
+                <div *ngIf="fred">
+                    <button (click)="verifyReject()" class="btn btn-danger" type="submit" >Verify Reject</button>
+                </div>
+                <div *ngIf="!fred" id="rejreas">
+                    Please enter a rejection reason.
+                </div>
             </span>
         </form>
         

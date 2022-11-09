@@ -23,6 +23,7 @@ export class RequestlineListComponent implements OnInit {
     ) { }
 
     submitReview(): void {
+      this.req.rejectionReason = "";
       this.reqsvc.review(this.req).subscribe({
         next: (res) => {
           console.debug("Request reviewed");
