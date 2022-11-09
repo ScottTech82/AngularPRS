@@ -50,8 +50,20 @@
             </table>
         </div>
     <div>
-        <span><button id="approveBtn" class="btn btn-link">Approve</button></span> | 
-        <span><button id="rejectBtn" class="btn btn-link">Reject</button></span>
+        <span><button (click)="approve()" id="approveBtn" class="btn btn-link">Approve</button></span> | 
+        <span><button (click)="reject()" id="rejectBtn" class="btn btn-link">Reject!</button></span>
+        
+        <form id="rejectForm" (ngSubmit)="verifyReject()" *ngIf="req" >
+
+            <span *ngIf="showVerifyReject">
+                <input id="rejres" size="40" placeholder="Rejection Reason (required)" 
+                [(ngModel)]="req.rejectionReason" name="rejres" required>
+                <!-- <input type="submit" onclick="verifyReject()" value="Verify Reject" id="rejectBtn">  -->
+                 <button (click)="verifyReject()" class="btn btn-danger" type="submit" >Verify Reject</button>
+            </span>
+        </form>
+        
+        <!-- <div id="message" class="text-danger h4">{{message}}</div> -->
     </div>
 </div>
 

@@ -14,6 +14,10 @@ export class RequestReviewitemComponent implements OnInit {
   pageTitle: string = "-- Request Review --";
   req!: Request;
   reqln: RequestLine[] = [];
+  showVerifyReject: boolean = false;
+  message: string = "";
+  
+
 
   constructor(
     private reqsvc: RequestService,
@@ -22,7 +26,48 @@ export class RequestReviewitemComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {
+  approve(): void {
+    this.reqsvc.approveReview(this.req).subscribe({
+      next: (res) => {
+        console.debug("Review Approved");
+        this.req = res;
+        this.refresh();
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
+  reject(): void {
+    this.showVerifyReject = !this.showVerifyReject;
+
+  }
+
+  verifyReject(): void {
+   // if(this.rejectInput === true) {
+      
+      this.reqsvc.rejectReview(this.req).subscribe({
+          next: (res) => {
+           console.debug("Review Rejected!");
+           this.req = res;
+           this.showVerifyReject = false;
+           this.refresh();
+         },
+         error: (err) => {
+           console.error(err);
+         }
+       
+     });
+    //}
+    //else {
+      //this.message = "Please enter a Rejection Reason!";
+      //this.reject();
+    //}
+
+  }
+
+  refresh(): void {
     let id = +this.route.snapshot.params["id"];
       this.reqsvc.get(id).subscribe({
         next: (res) => {
@@ -40,6 +85,10 @@ export class RequestReviewitemComponent implements OnInit {
           }
         }
       }); 
+  }
+
+  ngOnInit(): void {
+    this.refresh();
   }
 
 }

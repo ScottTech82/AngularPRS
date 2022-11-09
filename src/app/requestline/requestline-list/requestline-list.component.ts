@@ -1,10 +1,7 @@
 import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/product/product.class';
-import { ProductService } from 'src/app/product/product.service';
 import { Request } from 'src/app/request/request.class';
 import { RequestService } from 'src/app/request/request.service';
-import { RequestLine } from '../requestline.class';
 import { RequestLineService } from '../requestline.service';
 
 @Component({
@@ -14,17 +11,13 @@ import { RequestLineService } from '../requestline.service';
 })
 export class RequestlineListComponent implements OnInit {
 
-  reqln: RequestLine[] = [];
   pageTitle: string = "-- Request Lines --";
   req!: Request;
-  prod: Product[] = [];
-  reqlnTBD!: RequestLine;
   
   constructor(
     private reqlnsvc: RequestLineService,
     private route: ActivatedRoute,
     private reqsvc: RequestService,
-    private prodsvc: ProductService,
     private router: Router
     
     ) { }

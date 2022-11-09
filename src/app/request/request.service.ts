@@ -37,4 +37,10 @@ export class RequestService {
   getReviews(id: number): Observable<Request[]> {
     return this.http.get(`${this.baseurl}/reviews/${this.sys.user.id}`) as Observable<Request[]>;
   }
+  approveReview(req: Request): Observable<Request> {
+    return this.http.put(`${this.baseurl}/approve/${req.id}`, req) as Observable<Request>;
+  }
+  rejectReview(req: Request): Observable<Request> {
+    return this.http.put(`${this.baseurl}/reject/${req.id}`, req) as Observable<Request>;
+  }
 }
