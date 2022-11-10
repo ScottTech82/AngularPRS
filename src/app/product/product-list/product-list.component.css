@@ -49,3 +49,9 @@ tbody tr:hover {
 #sBar{
     text-align: end;
 }
+#sortBtn {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0px;
+}

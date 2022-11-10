@@ -15,6 +15,8 @@ export class RequestReviewComponent implements OnInit {
   req: Request[] = [];
   pageTitle: string = "-- Requests To Review --";
   user: User[] = [];
+  sortColumn: string = "id";
+  sortAsc: boolean = true;
 
   constructor(
     private reqsvc: RequestService,
@@ -22,7 +24,17 @@ export class RequestReviewComponent implements OnInit {
     private usersvc: UserService
   ) { }
 
+  sortBy(column: string): void {
+    if(column === this.sortColumn) {
+      this.sortAsc = !this.sortAsc; //flip the sorting if already sorting.
+      return;
+    }
+    this.sortColumn = column;
+    this.sortAsc = true;
+  }
+
   ngOnInit(): void {
+    this.sys.chkLogin();
     if(this.sys.user.isReviewer === true) { 
     this.reqsvc.getReviews(this.sys.user.id).subscribe({
       next: (res) => {

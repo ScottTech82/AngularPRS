@@ -7,20 +7,20 @@
         <table class="table table-sm table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip</th>
-                    <th>Phone</th>
-                    <th>Email</th>
+                    <th><button id="sortBtn" (click)="sortBy('id')" class="btn btn-link">Id</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('code')" class="btn btn-link">Code</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('name')" class="btn btn-link">Name</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('address')" class="btn btn-link">Address</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('city')" class="btn btn-link">City</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('state')" class="btn btn-link">State</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('zip')" class="btn btn-link">Zip</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('phone')" class="btn btn-link">Phone</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('email')" class="btn btn-link">Email</button></th>
                     <th class="text-center">Vendor Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let v of vend | vendorSearch:searchCrit">
+                <tr *ngFor="let v of vend | vendorSearch:searchCrit | sort:sortColumn:sortAsc">
                     <td>{{v.id}}</td>
                     <td>{{v.code}}</td>
                     <td>{{v.name}}</td>

@@ -7,18 +7,18 @@
         <table class="table table-sm table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id&nbsp;&nbsp;&nbsp;</th>
-                    <th>Part Number</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Unit&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th><button id="sortBtn" (click)="sortBy('id')" class="btn btn-link">Id&nbsp;&nbsp;&nbsp;</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('partNbr')" class="btn btn-link">Part Number</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('name')" class="btn btn-link">Name</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('price')" class="btn btn-link">Price</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('unit')" class="btn btn-link">Unit&nbsp;&nbsp;&nbsp;&nbsp;</button></th>
                     <!-- <th>PhotoPath</th> -->
-                    <th>Vendor</th>
+                    <th><button id="sortBtn" (click)="sortBy('vendor.name')" class="btn btn-link">Vendor</button></th>
                     <th class="text-center">Product Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of prod | productSearch:searchCrit">
+                <tr *ngFor="let p of prod | productSearch:searchCrit | sort:sortColumn:sortAsc">
                     <td>{{p.id}}</td>
                     <td>{{p.partNbr}}</td>
                     <td>{{p.name}}</td>

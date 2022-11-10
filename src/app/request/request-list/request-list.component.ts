@@ -15,12 +15,22 @@ export class RequestListComponent implements OnInit {
   req: Request[] = [];
   admin!: User;
   searchCrit: string = "";
+  sortColumn: string = "id";
+  sortAsc: boolean = true;
 
   constructor(
     private reqsvc: RequestService,
     private sys: SystemService
   ) { }
 
+  sortBy(column: string): void {
+    if(column === this.sortColumn) {
+      this.sortAsc = !this.sortAsc; //flip the sorting if already sorting.
+      return;
+    }
+    this.sortColumn = column;
+    this.sortAsc = true;
+  }
 
   ngOnInit(): void {
     this.sys.chkLogin();

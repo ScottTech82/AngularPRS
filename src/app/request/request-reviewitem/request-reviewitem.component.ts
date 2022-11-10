@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
 import { RequestLine } from 'src/app/requestline/requestline.class';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
@@ -22,7 +23,8 @@ export class RequestReviewitemComponent implements OnInit {
   constructor(
     private reqsvc: RequestService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sys: SystemService
 
   ) { }
 
@@ -89,6 +91,7 @@ export class RequestReviewitemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     this.refresh();
   }
 
