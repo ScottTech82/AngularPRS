@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -17,7 +18,8 @@ export class RequestChangeComponent implements OnInit {
   constructor(
     private reqsvc: RequestService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sys: SystemService
   ) { }
 
   update(): void {
@@ -33,6 +35,7 @@ export class RequestChangeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     let id = +this.route.snapshot.params["id"];
     this.reqsvc.get(id).subscribe({
       next: (res) => {

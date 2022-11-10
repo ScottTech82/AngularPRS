@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
 import { Vendor } from 'src/app/vendor/vendor.class';
 import { VendorService } from 'src/app/vendor/vendor.service';
 import { Product } from '../product.class';
@@ -21,7 +22,8 @@ export class ProductChangeComponent implements OnInit {
     private prodsvc: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private vendsvc: VendorService
+    private vendsvc: VendorService,
+    private sys: SystemService
   ) { }
 
   update(): void {
@@ -39,6 +41,7 @@ export class ProductChangeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     let id = +this.route.snapshot.params["id"];
     this.prodsvc.get(id).subscribe({
       next: (res) => {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
+import { User } from 'src/app/user/user.class';
 import { Vendor } from '../vendor.class';
 import { VendorService } from '../vendor.service';
 
@@ -13,11 +15,13 @@ export class VendorChangeComponent implements OnInit {
   pageTitle: string = "-- Vendor Update --";
   DetailPage: boolean = false;
   vend!: Vendor;
+  admin!: User;
 
   constructor(
     private vendsvc: VendorService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sys: SystemService
   ) { }
 
   update(): void {
@@ -38,6 +42,7 @@ export class VendorChangeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     let id = +this.route.snapshot.params["id"];
     this.vendsvc.get(id).subscribe({
       next: (res) => {
@@ -53,6 +58,7 @@ export class VendorChangeComponent implements OnInit {
         }
       }
     });
+    this.admin = this.sys.user;
   }
 
 }

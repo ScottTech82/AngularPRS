@@ -1,21 +1,25 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
+    <table style="width: 90%">
+    <th id="cnBtn"><a *ngIf="admin.isAdmin" id="createnew" routerLink="/user/create">-> Create New User <-</a></th>
+    <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="search (lowercase)" ></td>
+    </table>
         <table class="table table-sm table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Username</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Reviewer</th>
-                    <th>Admin</th>
+                    <th><button id="sortBtn" (click)="sortBy('id')" class="btn btn-link">Id</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('lastname')" class="btn btn-link">Last Name</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('firstname')" class="btn btn-link">First Name</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('username')" class="btn btn-link">Username</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('phone')" class="btn btn-link">Phone</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('email')" class="btn btn-link">Email</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('isReviewer')" class="btn btn-link">Reviewer</button></th>
+                    <th><button id="sortBtn" (click)="sortBy('isAdmin')" class="btn btn-link">Admin</button></th>
                     <th class="text-center">User Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let u of users">
+                <tr *ngFor="let u of users | userSearch:searchCrit | sort:sortColumn:sortAsc">
                     <td>{{u.id}}</td>
                     <td>{{u.lastname}}</td>
                     <td>{{u.firstname}}</td>
@@ -25,25 +29,18 @@
                     <td>{{u.isReviewer|boolDisp}}</td>
                     <td>{{u.isAdmin|boolDisp}}</td>
                     <td class="text-center">
-                        <a id="actions" routerLink="/user/detail/{{u.id}}">User Details </a> &nbsp;|&nbsp;
-                        <a id="actions" routerLink="/user/change/{{u.id}}">Edit User</a>
-                    </td>
+                        <a id="actions" routerLink="/user/detail/{{u.id}}">User Details </a>
+                        <span *ngIf="admin.isAdmin">
+                            &nbsp;|&nbsp;
+                            <a id="actions" routerLink="/user/change/{{u.id}}">Edit User</a>
+                        </span>
+                        </td>
                 </tr>
             </tbody>
         </table>
-        <div id="cnBtn">
-            <span><a id="createnew" routerLink="/user/create">-> Create New User <-</a></span>
-        </div>
-
         <!--
-        <table class="table table-sm">
-            <tr>
-            <th></th>
-                <td id="tdButton">
-                    <button id="createBtn" [routerLink]="'/user/create'" class="btn btn-info">
-                    -> New User <-</button>
-                </td>
-            </tr>
-        </table>
+        <div id="cnBtn">
+            <span><a *ngIf="admin.isAdmin" id="createnew" routerLink="/user/create">-> Create New User <-</a></span>
+        </div>
         -->
 </div>

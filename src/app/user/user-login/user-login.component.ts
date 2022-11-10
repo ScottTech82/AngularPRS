@@ -33,7 +33,7 @@ export class UserLoginComponent implements OnInit {
       },
       error: (err) => {
         if(err.status === 404) {
-          this.message = "-->The Email or Password provided does not match!<--"
+          this.message = "-->The Username or Password entered is incorrect!<--"
         }
         else {
           console.error(err);

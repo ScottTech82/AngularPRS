@@ -35,6 +35,11 @@ import { RequestlineChangeComponent } from './requestline/requestline-change/req
 import { AppInitService } from './app-init.service';
 import { RequestReviewComponent } from './request/request-review/request-review.component';
 import { RequestReviewitemComponent } from './request/request-reviewitem/request-reviewitem.component';
+import { UserSearchPipe } from './user/user-search.pipe';
+import { VendorSearchPipe } from './vendor/vendor-search.pipe';
+import { ProductSearchPipe } from './product/product-search.pipe';
+import { RequestSearchPipe } from './request/request-search.pipe';
+import { SortPipe } from './common/sort.pipe';
 
 export function startupServiceFactory(appInit: AppInitService): Function {
   return () => appInit.getSettings();
@@ -71,7 +76,12 @@ export function startupServiceFactory(appInit: AppInitService): Function {
     RequestlineCreateComponent,
     RequestlineChangeComponent,
     RequestReviewComponent,
-    RequestReviewitemComponent
+    RequestReviewitemComponent,
+    UserSearchPipe,
+    VendorSearchPipe,
+    ProductSearchPipe,
+    RequestSearchPipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,

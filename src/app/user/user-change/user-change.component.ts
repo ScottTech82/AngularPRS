@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, TitleStrategy } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
 import { User } from '../user.class';
 import { UserService } from '../user.service';
 
@@ -17,7 +18,8 @@ export class UserChangeComponent implements OnInit {
   constructor(
     private usersvc: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sys: SystemService
 
   ) { }
 
@@ -34,6 +36,7 @@ export class UserChangeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     let id = +this.route.snapshot.params["id"];
     this.usersvc.get(id).subscribe({
       next: (res) => {

@@ -1,7 +1,9 @@
 import { Component, OnInit, ɵɵqueryRefresh } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
 import { Request } from 'src/app/request/request.class';
 import { RequestService } from 'src/app/request/request.service';
+import { User } from 'src/app/user/user.class';
 import { RequestLineService } from '../requestline.service';
 
 @Component({
@@ -13,12 +15,14 @@ export class RequestlineListComponent implements OnInit {
 
   pageTitle: string = "-- Request Lines --";
   req!: Request;
+  admin!: User;
   
   constructor(
     private reqlnsvc: RequestLineService,
     private route: ActivatedRoute,
     private reqsvc: RequestService,
-    private router: Router
+    private router: Router,
+    private sys: SystemService
     
     ) { }
 
@@ -69,8 +73,9 @@ export class RequestlineListComponent implements OnInit {
     }
     
     ngOnInit(): void {
+      this.sys.chkLogin();
       this.refresh();
-
+      this.admin = this.sys.user;
     }
 
 

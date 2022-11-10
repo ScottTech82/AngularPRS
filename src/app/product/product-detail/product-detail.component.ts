@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
+import { User } from 'src/app/user/user.class';
 import { Vendor } from 'src/app/vendor/vendor.class';
 import { VendorService } from 'src/app/vendor/vendor.service';
 import { Product } from '../product.class';
@@ -17,12 +19,14 @@ export class ProductDetailComponent implements OnInit {
   prod!: Product;
   verifyRemoveButton: boolean = false;
   vend: Vendor[] = [];
+  admin!: User;
 
   constructor(
     private prodsvc: ProductService,
     private vendsvc: VendorService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private sys: SystemService
   ) { }
 
   remove(): void {
@@ -42,6 +46,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     let id = +this.route.snapshot.params["id"];
     this.prodsvc.get(id).subscribe({
       next: (res) => {
@@ -57,5 +62,6 @@ export class ProductDetailComponent implements OnInit {
         }
       }
     }); 
+    this.admin = this.sys.user;
   }
 }

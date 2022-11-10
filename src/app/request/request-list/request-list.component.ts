@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/product/product.class';
+import { SystemService } from 'src/app/common/system.service';
+import { User } from 'src/app/user/user.class';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -12,13 +13,49 @@ export class RequestListComponent implements OnInit {
 
   pageTitle: string = "-- Request List --";
   req: Request[] = [];
-  
+  admin!: User;
+  searchCrit: string = "";
 
   constructor(
-    private reqsvc: RequestService
+    private reqsvc: RequestService,
+    private sys: SystemService
   ) { }
 
+
   ngOnInit(): void {
+    this.sys.chkLogin();
+    this.admin = this.sys.user;
+    if(this.admin.isAdmin === true) {
+      this.reqsvc.list().subscribe({
+        next: (res) => {
+          console.debug("Requests:", res);
+          this.req = res;
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      });
+    } 
+    else {
+      this.reqsvc.list().subscribe({
+        next: (res) => {
+          for(let r of res) {
+            if(r.userId === this.admin.id) {
+              this.req.push(r);
+              console.debug("Requests:", this.req);
+            }
+          }
+        },
+        error: (err) => {
+          console.error(err);
+        }
+      })
+    }
+     
+    
+
+    /* --prior code in case above doesnt work.
+    this.sys.chkLogin();
     this.reqsvc.list().subscribe({
       next: (res) => {
         console.debug("Requests:", res);
@@ -28,5 +65,8 @@ export class RequestListComponent implements OnInit {
         console.error(err);
       }
     });
+    this.admin = this.sys.user;
+    */
   }
+  
 }

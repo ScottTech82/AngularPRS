@@ -1,36 +1,29 @@
 nav { 
-    background-color: rgb(221, 247, 247); /* had rgb(169, 233, 233) then later (211, 238, 238) */
+    background-color: rgb(42, 165, 165); /* had 211, 247, 247 || way prior = rgb(169, 233, 233) then later (211, 238, 238) */
     margin-top: 40px;
 } 
     ul { 
-    padding-left: 2px; 
+    padding-left: 5px; 
     margin: 20px 0; 
-    width: 100%;
+    
 }
 #nonMenu{
     display: inline-block;  
     text-align: left;
     font-size: large;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding-left: 20px;
-    
+    padding-left: 10px;
+ 
+}
 
-}
-#nonMenu2{
+#username{
     display: inline-block;
-    text-align: right;
+    width: 20%;
     font-size: large;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-#userlog{
-     
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: right;
-    font-size: large;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
-}
-span{
-    display: inline-block;
+    /*
     text-align: justify;
     direction: rtl;
+    */
 }

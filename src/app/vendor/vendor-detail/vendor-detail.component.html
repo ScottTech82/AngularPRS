@@ -39,7 +39,7 @@
             <table class="table table-sm">
                 <tr>
                     <th></th>
-                    <td id="tdButton">
+                    <td *ngIf="admin.isAdmin" id="tdButton">
                         <button id="removeBtn" (click)="remove()" class="btn btn-danger">Delete Vendor</button>
                         <span *ngIf="verifyRemoveButton">
                             &nbsp;&nbsp;&nbsp;----> 

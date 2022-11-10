@@ -1,15 +1,22 @@
 .login{
     text-align: center;
     /*background-color: rgb(189, 223, 224);*/
-    padding: 100px 100px 100px 0px;
+    /*padding: 100px 100px 100px 0px;*/
+    padding: 10% 0%;
 }
 #loginHeader{
     text-align: center;
-    padding-left: 70px;
+    /*padding-left: 70px;*/
     font-family: 'Times New Roman', Times, serif;
     
 }
 #loginbtn{
-    padding: 5px 30px;
-    margin-left: 50px;
+    padding: 5px 50px;
+    margin-right: 20px;
+ 
+}
+#username, #password{
+    margin-right: 180px;
+    
+    
 }

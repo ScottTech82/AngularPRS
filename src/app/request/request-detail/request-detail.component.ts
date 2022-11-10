@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'src/app/common/system.service';
+import { User } from 'src/app/user/user.class';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 
@@ -14,11 +16,13 @@ export class RequestDetailComponent implements OnInit {
   DetailPage: boolean = true;
   req!: Request;
   verifyRemoveButton: boolean = false;
+  admin!: User;
 
   constructor(
     private reqsvc: RequestService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sys: SystemService
     
   ) { }
 
@@ -39,6 +43,7 @@ export class RequestDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     let id = +this.route.snapshot.params["id"];
     this.reqsvc.get(id).subscribe({
       next: (res) => {
@@ -54,5 +59,6 @@ export class RequestDetailComponent implements OnInit {
         }
       }
     }); 
+    this.admin = this.sys.user;
   }
 }

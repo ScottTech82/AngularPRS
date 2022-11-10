@@ -25,9 +25,10 @@ tbody tr:hover {
     padding-right: 8px;
     font-style: italic;
     color: rgb(4, 88, 88);
-    font-size: large;
+    /*font-size: large;*/
     text-decoration: none;
     border-radius: 10px;
+    font-weight: normal;
     
 }
 #createnew:hover {
@@ -36,5 +37,15 @@ tbody tr:hover {
     border-radius: 10px;
 }
 #cnBtn{
+    display: inline-block;
     padding: 30px;
+    
+}
+#searchBar {
+    display: inline-block;
+    /*margin-left: 80%; */
+    padding: 1px 10px;
+}
+#sBar{
+    text-align: end;
 }

@@ -46,6 +46,7 @@ export class RequestCreateComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.sys.chkLogin();
     console.debug("Login:", this.sys.user);
     this.user = this.sys.user;
     console.debug("user:", this.user);

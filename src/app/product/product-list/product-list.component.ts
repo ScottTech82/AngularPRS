@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/common/system.service';
+import { User } from 'src/app/user/user.class';
 import { Vendor } from 'src/app/vendor/vendor.class';
 import { VendorService } from 'src/app/vendor/vendor.service';
 import { Product } from '../product.class';
@@ -14,14 +16,18 @@ export class ProductListComponent implements OnInit {
   pageTitle: string = "-- The Product List --"
   prod: Product[] = [];
   vend!: Vendor;
+  admin!: User;
+  searchCrit: string = "";
 
   constructor(
     private prodsvc: ProductService,
-    private vendsvc: VendorService
+    private vendsvc: VendorService,
+    private sys: SystemService
 
   ) { }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
     this.prodsvc.list().subscribe({
       next: (res) => {
         console.debug("Products:", res);
@@ -31,6 +37,7 @@ export class ProductListComponent implements OnInit {
         console.error(err);
       }
     });
+    this.admin = this.sys.user;
   }
 
 }
