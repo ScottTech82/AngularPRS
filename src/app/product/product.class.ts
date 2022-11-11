@@ -9,4 +9,6 @@ export class Product {
     photoPath: string = "";
     vendorId!: number;
     vendor!: Vendor;
+
+    VendorName: string = "";
 }

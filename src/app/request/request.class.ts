@@ -14,5 +14,7 @@ export class Request {
     
     userId!: number;
     user!: User;
+
+    UserName: string = "";
     
 }

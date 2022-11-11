@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/common/system.service';
+import { Request } from 'src/app/request/request.class';
+import { RequestService } from 'src/app/request/request.service';
 import { Menu } from '../menu/menu.class';
 
 @Component({
@@ -8,11 +11,16 @@ import { Menu } from '../menu/menu.class';
 })
 export class MenuitemComponent implements OnInit {
 
+  
   @Input() menu!: Menu;
 
-  constructor() { }
+  constructor(
+    private sys: SystemService,
+    private reqsvc: RequestService
+  ) { }
 
   ngOnInit(): void {
+
   }
 
 }

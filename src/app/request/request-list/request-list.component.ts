@@ -35,11 +35,14 @@ export class RequestListComponent implements OnInit {
   ngOnInit(): void {
     this.sys.chkLogin();
     this.admin = this.sys.user;
-    if(this.admin.isAdmin === true) {
+    if(this.admin.isAdmin === true || this.admin.isReviewer === true) {
       this.reqsvc.list().subscribe({
         next: (res) => {
           console.debug("Requests:", res);
           this.req = res;
+          for(let x of this.req) {
+            x.UserName = x.user.username;
+          }
         },
         error: (err) => {
           console.error(err);
@@ -53,6 +56,9 @@ export class RequestListComponent implements OnInit {
             if(r.userId === this.admin.id) {
               this.req.push(r);
               console.debug("Requests:", this.req);
+              for(let x of this.req) {
+                x.UserName = x.user.username;
+              }
             }
           }
         },
@@ -62,7 +68,7 @@ export class RequestListComponent implements OnInit {
       })
     }
      
-    
+
 
     /* --prior code in case above doesnt work.
     this.sys.chkLogin();

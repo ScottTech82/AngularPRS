@@ -43,6 +43,9 @@ export class ProductListComponent implements OnInit {
       next: (res) => {
         console.debug("Products:", res);
         this.prod = res;
+        for(let p of this.prod) {
+          p.VendorName = p.vendor.name;
+        }
       },
       error: (err) => {
         console.error(err);
