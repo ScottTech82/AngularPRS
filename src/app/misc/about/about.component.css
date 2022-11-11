@@ -1,0 +1,14 @@
+h6{
+    text-align: center;
+}
+
+#ptop{
+    word-wrap: normal;
+    text-align: center;
+}
+#pbody{
+    word-wrap: normal;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}

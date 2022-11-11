@@ -31,6 +31,9 @@ export class VendorService {
   remove(id: number): Observable<any> {
     return this.http.delete(`${this.baseurl}/${id}`) as Observable<any>;
   }
+  getPo(id: number): Observable<any> {
+    return this.http.get(`${this.baseurl}/po/${id}`) as Observable<any>;
+  }
 
 
 

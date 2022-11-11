@@ -1,0 +1,80 @@
+<div id="component">
+    <prs-head [pageTitle]="pageTitle"></prs-head>
+        <table class="table table-sm table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Po Total</th>
+                    <!--
+                    <th class="text-center">Request Actions</th>
+                    -->
+                </tr>
+            </thead>
+            <tbody *ngIf="vend">
+                <tr *ngIf="po">
+                    <td>{{vend.id}}</td>
+                    <td>{{vend.code}}</td>
+                    <td>{{vend.name}}</td>
+                    <td>{{vend.phone}}</td>
+                    <td>{{vend.email}}</td>
+                    <td>{{po.poTotal|currency}}</td>
+                    <!--
+
+                        <td class="text-center">
+                            <button (click)="submitReview()" id="actionsBtn" class="btn btn-link">Submit for Review</button>
+                        </td>
+                    -->
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <hr>
+        <div id="polinetable">
+            <h4 id="polines">-- PO Lines --</h4><br>
+            <table class="table table-sm table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Line Total</th>
+                        <!-- 
+                        <th class="text-center">Request Line Actions</th>
+                        -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngIf="po">
+                        <tr *ngFor="let pl of po.polines">
+                            <td>{{pl.product}}</td>
+                            <td>{{pl.quantity}}</td>
+                            <td>{{pl.price|currency}}</td>
+                            <td>{{pl.lineTotal|currency}}</td>
+                          <!--
+                            <td class="text-center">
+                                <button id="actionsBtn" class="btn btn-link" routerLink="/requestline/change/{{rql.id}}">Edit</button> &nbsp;|&nbsp;
+                                <button (click)="reqlnDelete(rql.id)" id="actionsBtn" class="btn btn-link">Delete</button>
+                            </td>
+                        -->
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+        <!--
+    <div id="cnBtn" *ngIf="po">
+        <span><a id="createnew" routerLink="/requestline/create/{{req.id}}">-> New Request Line <-</a></span>
+    </div>
+-->
+</div>
+
+
+
+
+
+
+

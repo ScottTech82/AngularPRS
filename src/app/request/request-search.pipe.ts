@@ -9,7 +9,7 @@ export class RequestSearchPipe implements PipeTransform {
   transform(request: Request[], search: string = ""): Request[] {
     let selected: Request[] = [];
     for(let r of request) {
-      if(r.user.username.includes(search)) {
+      if(r.user.username.toLowerCase().includes(search)) {
         selected.push(r);
       }
     }

@@ -40,6 +40,7 @@ import { VendorSearchPipe } from './vendor/vendor-search.pipe';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import { RequestSearchPipe } from './request/request-search.pipe';
 import { SortPipe } from './common/sort.pipe';
+import { VendorPoComponent } from './vendor/vendor-po/vendor-po.component';
 
 export function startupServiceFactory(appInit: AppInitService): Function {
   return () => appInit.getSettings();
@@ -81,7 +82,8 @@ export function startupServiceFactory(appInit: AppInitService): Function {
     VendorSearchPipe,
     ProductSearchPipe,
     RequestSearchPipe,
-    SortPipe
+    SortPipe,
+    VendorPoComponent
   ],
   imports: [
     BrowserModule,

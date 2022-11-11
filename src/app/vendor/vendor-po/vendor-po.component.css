@@ -53,8 +53,12 @@ tbody tr:hover {
 #cnBtn{
     padding: 30px;
 }
-
-
+#polines{
+    font-style: italic;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 100px;
+}
 
 
 

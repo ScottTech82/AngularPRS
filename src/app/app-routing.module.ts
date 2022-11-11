@@ -25,6 +25,7 @@ import { RequestlineCreateComponent } from './requestline/requestline-create/req
 import { RequestlineChangeComponent } from './requestline/requestline-change/requestline-change.component';
 import { RequestReviewComponent } from './request/request-review/request-review.component';
 import { RequestReviewitemComponent } from './request/request-reviewitem/request-reviewitem.component';
+import { VendorPoComponent } from './vendor/vendor-po/vendor-po.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,8 @@ const routes: Routes = [
   {path: "requestline/change/:id", component: RequestlineChangeComponent},
   {path: "request/reviews", component: RequestReviewComponent},
   {path: "request/reviews/:id", component: RequestReviewitemComponent},
+  {path: "vendor/po/:id", component: VendorPoComponent},
+
   {path: "about", component: AboutComponent},
   
 

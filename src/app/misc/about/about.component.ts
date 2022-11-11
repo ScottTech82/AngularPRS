@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SystemService } from 'src/app/common/system.service';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  pageTitle: string = "-- About --";
+
+  constructor(
+    private sys: SystemService
+  ) { }
 
   ngOnInit(): void {
+    this.sys.chkLogin();
   }
 
 }

@@ -27,3 +27,13 @@ tbody tr:hover {
     font-weight: bold;
     padding: 0px;
 }
+#searchBar {
+    display: inline-block;
+    /*margin-left: 80%; */
+    padding: 1px 10px;
+}
+#sBar{
+    text-align: end;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}

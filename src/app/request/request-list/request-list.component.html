@@ -2,7 +2,7 @@
     <prs-head [pageTitle]="pageTitle"></prs-head>
     <table style="width: 90%">
         <th id="cnBtn"><a *ngIf="admin.isAdmin" id="createnew" routerLink="/request/create">-> Create New Request <-</a></th>
-        <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="user search (lowercase)" ></td>
+        <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="user only search (lower)" ></td>
         </table>
         <table class="table table-sm table-striped table-hover">
             <thead>

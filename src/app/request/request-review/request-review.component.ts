@@ -17,7 +17,8 @@ export class RequestReviewComponent implements OnInit {
   user: User[] = [];
   sortColumn: string = "id";
   sortAsc: boolean = true;
-
+  searchCrit: string = "";
+ 
   constructor(
     private reqsvc: RequestService,
     private sys: SystemService,

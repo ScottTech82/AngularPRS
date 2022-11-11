@@ -1,5 +1,8 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
+    <table style="width: 90%">
+        <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="user only search (lower)" ></td>
+        </table>
         <table class="table table-sm table-striped table-hover">
             <thead>
                 <tr>
@@ -13,7 +16,7 @@
                 </tr>
             </thead>
             <tbody *ngIf="req">
-                <tr *ngFor="let r of req | sort:sortColumn:sortAsc">
+                <tr *ngFor="let r of req | sort:sortColumn:sortAsc | requestSearch:searchCrit">
                     <td>{{r.id}}</td>
                     <td>{{r.description}}</td>
                     <td>{{r.justification}}</td>
