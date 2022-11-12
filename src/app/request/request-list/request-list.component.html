@@ -1,10 +1,10 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
     <table style="width: 90%">
-        <th id="cnBtn"><a *ngIf="admin.isAdmin" id="createnew" routerLink="/request/create">-> Create New Request <-</a></th>
-        <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="user only search (lower)" ></td>
+        <th id="cnBtn"><a id="createnew" routerLink="/request/create">-> Create New Request <-</a></th>
+        <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="user only search" ></td>
         </table>
-        <table class="table table-sm table-striped table-hover">
+        <table  *ngIf="req" class="table table-sm table-striped table-hover">
             <thead>
                 <tr>
                     <th><button id="sortBtn" (click)="sortBy('id')" class="btn btn-link">Id</button></th>
@@ -33,9 +33,7 @@
                 </tr>
             </tbody>
         </table>
-    <!-- <div id="cnBtn">
-        <span><a id="createnew" routerLink="/request/create">-> Create New Request <-</a></span>
-    </div> -->
+
 </div>
 
 

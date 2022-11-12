@@ -17,6 +17,12 @@
 }
 #username, #password{
     margin-right: 180px;
+    font-style: italic;
     
     
+}
+#loginMessage{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: bold;
 }

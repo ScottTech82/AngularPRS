@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SystemService } from 'src/app/common/system.service';
 import { Request } from 'src/app/request/request.class';
 import { RequestService } from 'src/app/request/request.service';
@@ -13,7 +14,7 @@ import { Menu } from './menu.class';
 export class MenuComponent implements OnInit {
 
   
-/* --was attempting to read the reviews and display in menu--
+/* --was attempting to read the reviews and display in menu showing the reviews to complete number--
   req!: Request[];
   r!: number;
 */ 
@@ -36,10 +37,11 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private sys: SystemService,
-    private reqsvc: RequestService
+    private reqsvc: RequestService,
+    private router: Router
   ) { }
 
-  
+
   ngOnInit(): void {
     this.user = this.sys.user;
     /*

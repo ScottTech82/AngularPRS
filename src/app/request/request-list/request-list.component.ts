@@ -17,6 +17,8 @@ export class RequestListComponent implements OnInit {
   searchCrit: string = "";
   sortColumn: string = "id";
   sortAsc: boolean = true;
+  rx: Request[] = [];
+
 
   constructor(
     private reqsvc: RequestService,
@@ -52,15 +54,15 @@ export class RequestListComponent implements OnInit {
     else {
       this.reqsvc.list().subscribe({
         next: (res) => {
-          for(let r of res) {
-            if(r.userId === this.admin.id) {
-              this.req.push(r);
-              console.debug("Requests:", this.req);
-              for(let x of this.req) {
-                x.UserName = x.user.username;
-              }
+          for(let rs of res) {
+            if(rs.userId === this.admin.id) {
+              this.rx.push(rs);
+              this.req = this.rx;
+              /*this.req = res.map();*/
+              console.debug("rs", rs);
             }
           }
+          console.debug("Requests:", this.req);
         },
         error: (err) => {
           console.error(err);
