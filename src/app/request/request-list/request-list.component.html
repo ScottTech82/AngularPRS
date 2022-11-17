@@ -1,7 +1,7 @@
 <div id="component">
     <prs-head [pageTitle]="pageTitle"></prs-head>
     <table style="width: 90%">
-        <th id="cnBtn"><a id="createnew" routerLink="/request/create">-> Create New Request <-</a></th>
+        <th id="cnBtn" ><button id="createnew" routerLink="/request/create" [disabled]="createNewchk()">-> Create New Request <-</button></th>
         <td id="sBar"><input id="searchBar" [(ngModel)]="searchCrit" placeholder="user only search" ></td>
         </table>
         <table  *ngIf="req" class="table table-sm table-striped table-hover">
@@ -25,9 +25,8 @@
                     <td>{{r.total|currency}}</td>
                     <td>{{r.user.username}}</td>
                     <td class="text-center">
-                        <a id="actions" routerLink="/request/detail/{{r.id}}">Details</a>
-                        <span *ngIf="admin.isAdmin"> &nbsp;|&nbsp;
-                        <a id="actions" routerLink="/request/change/{{r.id}}">Edit</a></span> &nbsp;|&nbsp;
+                        <a id="actions" routerLink="/request/detail/{{r.id}}">Details</a> &nbsp;|&nbsp;
+                        <a id="actions" routerLink="/request/change/{{r.id}}">Edit</a> &nbsp;|&nbsp;
                         <a id="actions" routerLink="/requestline/list/{{r.id}}">Lines</a>
                     </td>
                 </tr>

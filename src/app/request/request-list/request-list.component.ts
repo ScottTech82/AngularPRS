@@ -18,12 +18,25 @@ export class RequestListComponent implements OnInit {
   sortColumn: string = "id";
   sortAsc: boolean = true;
   rx: Request[] = [];
-
+  createNew: Request[] = [];
 
   constructor(
     private reqsvc: RequestService,
     private sys: SystemService
   ) { }
+
+
+  createNewchk(): boolean {
+    if(this.createNew.length > 4) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
+
 
   sortBy(column: string): void {
     if(column === this.sortColumn) {
@@ -37,6 +50,14 @@ export class RequestListComponent implements OnInit {
   ngOnInit(): void {
     this.sys.chkLogin();
     this.admin = this.sys.user;
+    
+    for(let r of this.req) {
+      if(r.status === "REVIEW" && r.userId === this.admin.id) {
+        this.createNew.push(r);
+        console.debug("new:", this.createNew);
+      }
+  }
+
     if(this.admin.isAdmin === true || this.admin.isReviewer === true) {
       this.reqsvc.list().subscribe({
         next: (res) => {
@@ -85,6 +106,12 @@ export class RequestListComponent implements OnInit {
     });
     this.admin = this.sys.user;
     */
+    
+
   }
+
+
+
+  
   
 }
