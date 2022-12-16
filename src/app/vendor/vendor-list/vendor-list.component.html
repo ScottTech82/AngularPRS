@@ -36,10 +36,24 @@
                         <a id="actions" routerLink="/vendor/change/{{v.id}}">Edit</a> &nbsp;|&nbsp;
                         <a id="actions" routerLink="/vendor/po/{{v.id}}">Po</a>
                         </span>
+                        <span *ngIf="admin.username === 'Guest'" > &nbsp;|&nbsp;
+                        <a id="actions" >Edit</a> &nbsp;|&nbsp;
+                        <a id="actions" >Po</a>
+                        </span>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <br>
+        <p>
+            *Please note: Logging in as Guest will disable the Edit buttons & Create new buttons.
+        </p><br>
+        <p id="userlistinfo">
+            *I created a Pipe that allows you to sort by any of the columns. &nbsp;Simply click the column header.<br>
+        </p>
+        <p>
+            *And created a search feature that allows you to search for specific users or vendors, etc. &nbsp;It updates as you type.
+        </p>
    <!-- <div *ngIf="admin.isAdmin" id="cnBtn">
         <span><a id="createnew" routerLink="/vendor/create">-> Create New Vendor <-</a></span>
     </div> -->
