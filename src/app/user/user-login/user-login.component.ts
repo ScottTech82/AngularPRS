@@ -15,6 +15,8 @@ export class UserLoginComponent implements OnInit {
   password: string = "";
   message: string = "";
   message2: string = "";
+  userguest: string = "Guest";
+  guestpword: string = "g123";
   
 
   constructor(
@@ -42,6 +44,25 @@ export class UserLoginComponent implements OnInit {
         }
       }
     });
+  }
+
+  guestlogin(): void {
+    this.sys.user = null;
+    this.usersvc.login(this.userguest, this.guestpword).subscribe({
+      next: (res) => {
+        this.sys.user = res;
+        this.router.navigateByUrl("/user/list");
+      },
+      error: (err) => {
+        if(err.status === 404) {
+          this.message = "**The Username or Password entered does not exist.**";
+          this.message2 = "**Please try again or contact an Admin.**";
+        }
+        else {
+          console.error(err);
+        }
+      }
+    })
   }
 
   ngOnInit(): void {

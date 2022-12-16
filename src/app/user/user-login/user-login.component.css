@@ -26,3 +26,23 @@
     font-style: italic;
     font-weight: bold;
 }
+#guestbtn{
+    padding: 5px 70px;
+    margin-top: 0px;
+    margin-right: 20px;
+ 
+}
+#logininfo{
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    /*margin-left: 375px;
+    margin-right: 350px;*/
+}
+#guestinfo{
+    text-align: center;
+    margin-top: 5px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
